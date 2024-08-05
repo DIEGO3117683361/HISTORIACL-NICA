@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Clínica</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333333;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+        }
+        h2 {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555555;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .asclepio {
+            text-align: center;
+            color: #cccccc;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        .logo {
+            text-align: center;
+            font-size: 2.5em;
+            color: #0f0f0f;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">A S C L E P I O</div>
+        <h1>Historia Clínica</h1>
+        <form id="historiaClinicaForm">
+            <h2>Datos de Identificación</h2>
+            <label for="nombreCompleto">Nombre y apellidos completos:</label>
+            <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+
+            <label for="estadoCivil">Estado civil:</label>
+            <input type="text" id="estadoCivil" name="estadoCivil" required>
+
+            <label for="religion">Religión:</label>
+            <input type="text" id="religion" name="religion" required>
+
+            <label for="estrato">Estrato socioeconómico:</label>
+            <input type="text" id="estrato" name="estrato" required>
+
+            <label for="escolaridad">Escolaridad:</label>
+            <input type="text" id="escolaridad" name="escolaridad" required>
+
+            <label for="procedencia">Origen/procedencia (Barrio):</label>
+            <input type="text" id="procedencia" name="procedencia" required>
+
+            <label for="etnia">Etnia:</label>
+            <input type="text" id="etnia" name="etnia" required>
+
+            <label for="ocupacionesPrevias">Ocupaciones previas:</label>
+            <input type="text" id="ocupacionesPrevias" name="ocupacionesPrevias" required>
+
+            <label for="ocupacionActual">Ocupación actual:</label>
+            <input type="text" id="ocupacionActual" name="ocupacionActual" required>
+
+            <label for="informante">Informante:</label>
+            <input type="text" id="informante" name="informante" required>
+
+            <label for="calidadInformante">Calidad del informante:</label>
+            <input type="text" id="calidadInformante" name="calidadInformante" required>
+
+            <h2>Motivo de Consulta</h2>
+            <label for="motivoConsulta">Motivo de consulta:</label>
+            <input type="text" id="motivoConsulta" name="motivoConsulta" required>
+
+            <h2>Enfermedad Actual</h2>
+            <label for="enfermedadActual">Descripción:</label>
+            <textarea id="enfermedadActual" name="enfermedadActual" rows="4" required></textarea>
+
+            <h2>Antecedentes</h2>
+            <label for="antecedentesPersonales">Personales:</label>
+            <textarea id="antecedentesPersonales" name="antecedentesPersonales" rows="4" required></textarea>
+
+            <label for="antecedentesFamiliares">Familiares:</label>
+            <textarea id="antecedentesFamiliares" name="antecedentesFamiliares" rows="4" required></textarea>
+
+            <h2>Revisión por Sistemas</h2>
+            <label for="revisionSistemas">Descripción:</label>
+            <textarea id="revisionSistemas" name="revisionSistemas" rows="4" required placeholder="Por favor, incluya los sistemas: Cardiovascular, Respiratorio, Gastrointestinal, etc."></textarea>
+
+            <h2>Examen Físico</h2>
+            <label for="examenFisico">Descripción:</label>
+            <textarea id="examenFisico" name="examenFisico" rows="4" required></textarea>
+
+            <h2>Resumen y Planteamiento del Caso</h2>
+            <label for="resumen">Descripción:</label>
+            <textarea id="resumen" name="resumen" rows="4" required></textarea>
+
+            <h2>Impresión(es) Diagnóstica(s)</h2>
+            <label for="impresionDiagnostica">Descripción:</label>
+            <textarea id="impresionDiagnostica" name="impresionDiagnostica" rows="4" required></textarea>
+
+            <h2>Conducta y Órdenes Médicas</h2>
+            <label for="conductaOrdenes">Descripción:</label>
+            <textarea id="conductaOrdenes" name="conductaOrdenes" rows="4" required></textarea>
+
+            <h2>Evoluciones Médicas, de Enfermería y Otros Miembros del Equipo de Salud</h2>
+            <label for="evoluciones">Descripción:</label>
+            <textarea id="evoluciones" name="evoluciones" rows="4" required></textarea>
+
+            <h2>Anexos</h2>
+            <label for="anexos">Descripción:</label>
+            <textarea id="anexos" name="anexos" rows="4" required></textarea>
+
+            <div class="button-container">
+                <button type="button" onclick="generarPDF()">Generar</button>
+            </div>
+        </form>
+        <div class="asclepio">A S C L E P I O</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        function generarPDF() {
+            const doc = new jsPDF();
+            const form = document.getElementById('historiaClinicaForm');
+            const nombrePaciente = document.getElementById('nombreCompleto').value || 'Paciente';
+
+            let y = 10;
+            doc.setFontSize(14);
+            doc.text('Historia Clínica', 105, y, { align: 'center' });
+            y += 10;
+
+            form.querySelectorAll('h2, label, input, textarea, select').forEach(element => {
+                if (element.tagName === 'H2') {
+                    doc.setFontSize(12);
+                    doc.text(element.textContent, 10, y);
+                    y += 7;
+                } else if (element.tagName === 'LABEL') {
+                    doc.setFontSize(10);
+                    doc.text(element.textContent, 10, y);
+                    y += 5;
+                } else if (element.tagName === 'TEXTAREA') {
+                    const textLines = doc.splitTextToSize(element.value, 180);
+                    doc.setFontSize(10);
+                    doc.text(textLines, 10, y);
+                    y += textLines.length * 5;
+                } else if (element.tagName === 'INPUT' || element.tagName === 'SELECT') {
+                    const value = element.value || element.options[element.selectedIndex].text;
+                    const textLines = doc.splitTextToSize(value, 180);
+                    doc.setFontSize(10);
+                    doc.text(textLines, 10, y);
+                    y += textLines.length * 5;
+                }
+
+                if (y > 280) {
+                    doc.addPage();
+                    y = 10;
+                }
+            });
+
+            doc.setFontSize(8);
+            doc.text('A S C L E P I O', 105, 290, { align: 'center' });
+            doc.save(`Historia_clinica_${nombrePaciente}.pdf`);
+        }
+    </script>
+</body>
+</html>
